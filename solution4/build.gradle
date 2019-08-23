@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'eclipse' // optional (to generate Eclipse project files)
+    id 'idea' // optional (to generate IntelliJ IDEA project files)
+}
+
+group 'mastercard'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':solution4s')
+    compile group: 'com.google.inject', name: 'guice', version: '4.2.2'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.4.1'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
